@@ -40,10 +40,10 @@ a:hover{ text-decoration:underline; }
 .sidebar nav a.active{ background:var(--ink); color:#fff; }
 
 main{
-  padding: 44px 28px 28px;     /* 再轻轻收一下上下留白 */
-  max-width: 760px;            /* 收紧行宽 → 信息更聚焦、更高级 */
+  padding: 36px 28px 20px;       /* 再轻微收紧上下留白 */
+  max-width: 760px;
   margin: 0 auto;
-  min-height: calc(100vh - 44px);
+  min-height: calc(100vh - 36px); /* 使内容刚好落入屏幕 */
 }
 
 h1{ font-size:var(--fz-xxl); margin:0 0 0.6em; letter-spacing:-0.5px; line-height:1.15; }
