@@ -174,3 +174,19 @@ main img[alt="Portrait"] {
   border-radius: 6px !important;
   opacity: 0.96 !important;
 }
+
+/* Shift homepage visual center downward */
+main {
+  padding-top: 120px !important; /* push whole content down */
+}
+
+/* Soften sidebar presence */
+.sidebar {
+  opacity: 0.82;
+  letter-spacing: 0.2px;
+}
+
+/* Reduce sidebar width further to rebalance symmetry */
+.layout {
+  grid-template-columns: 160px 1fr !important;
+}
