@@ -140,3 +140,26 @@ main img {
   margin-top: 52px;
   opacity: 0.96;
 }
+
+/* Layout balance refinement */
+.layout {
+  grid-template-columns: 180px 1fr; /* narrower sidebar = better visual center */
+}
+
+/* Increase portrait presence */
+main img {
+  width: 360px;        /* person, not avatar */
+  margin-top: 64px;    /* breathing space */
+  opacity: 0.96;
+  border-radius: 6px;
+}
+
+/* Reduce top whitespace and lift visual center */
+main {
+  padding-top: 48px;
+}
+
+/* Slightly tighten paragraph width for better reading rhythm */
+main p {
+  max-width: 600px;
+}
