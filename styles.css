@@ -1,0 +1,82 @@
+/*
+全站通用样式（仅注释为中文；页面可见文字均为英文）。
+本样式适用于 index.html / cv.html / research.html / publications.html / highlights.html / projects.html / contact.html
+====================================================================
+可调整的主题变量：颜色、字体、尺寸。
+*/
+:root{
+  --font: -apple-system, BlinkMacSystemFont, Helvetica, Arial, "Noto Sans", sans-serif;
+  --ink: #0f172a;           /* 主文字色 */
+  --muted: #475569;         /* 次要文字色 */
+  --line: #e5e7eb;          /* 边框线色 */
+  --brand: #1b73e8;         /* 品牌色（链接/高亮）*/
+  --bg: #ffffff;            /* 页面背景 */
+  --bg-alt: #f8fafc;        /* 次背景（条纹/分区） */
+  --radius: 14px;           /* 卡片圆角 */
+  --shadow: 0 10px 25px rgba(15,23,42,.08);
+
+  --fz-xs: 12px;
+  --fz-sm: 14px;
+  --fz-md: 16px;
+  --fz-lg: 18px;
+  --fz-xl: 26px;
+  --fz-xxl: 36px;
+
+  --container: 980px;       /* 主内容最大宽度 */
+}
+
+/* 复用基线 */
+*{ box-sizing:border-box; }
+html,body{height:100%}
+body{ margin:0; font-family:var(--font); color:var(--ink); background:var(--bg); line-height:1.7; }
+a{ color:var(--brand); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+img{ max-width:100%; display:block; }
+
+/* 顶部栏（首页使用） */
+header.site-top{ border-bottom:1px solid var(--line); padding:20px 32px; display:flex; align-items:center; justify-content:space-between; }
+header.site-top .brand{ font-weight:700; }
+header.site-top nav a{ margin-left:22px; color:var(--ink); font-size:15px; }
+header.site-top nav a:hover{ color:var(--brand); text-decoration:none; }
+
+/* 左侧边栏布局（子页面） */
+.layout{ display:grid; grid-template-columns: 240px 1fr; min-height:100vh; }
+.sidebar{ border-right:1px solid var(--line); padding:28px 20px; position:sticky; top:0; height:100vh; }
+.sidebar .name{ font-weight:800; font-size:18px; margin-bottom:18px; }
+.sidebar nav a{ display:block; padding:10px 8px; color:var(--ink); border-radius:10px; }
+.sidebar nav a:hover{ background:var(--bg-alt); }
+.sidebar nav a.active{ background:var(--brand); color:#fff; }
+
+main{ padding:34px 28px; }
+.container{ width:min(100% - 32px, var(--container)); }
+
+h1{ font-size:var(--fz-xxl); margin:.2em 0 .5em; }
+h2{ font-size:var(--fz-xl); margin:1.2em 0 .4em; }
+h3{ font-size:var(--fz-lg); margin:1em 0 .3em; }
+p, li{ font-size:var(--fz-md); color:var(--ink); }
+.muted{ color:var(--muted); }
+.hr{ height:1px; background:var(--line); margin:18px 0; }
+
+/* 清单风格（Research / Publications 共用） */
+.list{ list-style:none; padding:0; margin:0; }
+.list li{ padding:12px 0; border-bottom:1px dashed var(--line); }
+.list li:last-child{ border-bottom:none; }
+.item-title{ font-weight:600; }
+.item-meta{ color:var(--muted); font-size:var(--fz-sm); margin-top:4px; }
+
+/* Publications 自动编号（从 1 开始，近到远） */
+.pub-list{ counter-reset: pub; list-style:none; padding:0; margin:0; }
+.pub-list li{ position:relative; padding-left:46px; padding-bottom:14px; margin-bottom:12px; border-bottom:1px dashed var(--line); }
+.pub-list li:last-child{ border-bottom:none; }
+.pub-list li::before{ counter-increment: pub; content: counter(pub) "."; position:absolute; left:0; top:0; font-weight:800; color:var(--brand); }
+.pub-authors b u{ text-decoration:underline; }
+
+/* Highlight 卡片（可选） */
+.grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap:18px; }
+.col-4{ grid-column: span 4; }
+.col-6{ grid-column: span 6; }
+.col-12{ grid-column: span 12; }
+@media (max-width: 960px){ .layout{ grid-template-columns: 1fr; } .sidebar{ position:relative; height:auto; } .col-4,.col-6{ grid-column: span 12; } }
+
+/* Show more 折叠 */
+.button-link{ background:none; border:none; color:var(--brand); cursor:pointer; font-size:var(--fz-sm); padding:0; }
