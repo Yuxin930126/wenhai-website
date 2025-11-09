@@ -191,9 +191,20 @@ main {
   grid-template-columns: 160px 1fr !important;
 }
 
-body{
-  background-image: url("background.png");
-  background-size: 850px;         /* 如果想更空气 → 改成 1100px */
-  background-repeat: repeat;
-  opacity: 0.96;                   /* 保持白底呼吸感，不透明 */
+/* 微弱孔隙网络空气背景层（非常低存在感） */
+main {
+  position: relative;
 }
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("background.png");
+  background-size: 1100px;   /* 越大越空气，越小越结构 */
+  background-repeat: repeat;
+  opacity: 0.045;            /* 透明度控制 —— 最关键 */
+  z-index: -1;
+  pointer-events: none;
+}
+
