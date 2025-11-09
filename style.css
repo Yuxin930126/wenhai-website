@@ -108,3 +108,35 @@ main img {
   margin-top: 36px;
   opacity: 0.985;
 }
+
+/* Low-contrast academic tone — “A” refinement */
+body {
+  color: rgba(0,0,0,0.88);
+}
+
+main h1 {
+  font-weight: 480;
+  letter-spacing: 0.2px;
+  opacity: 0.92;
+}
+
+main .muted {
+  opacity: 0.85;
+  font-size: var(--fz-md);
+}
+
+main p {
+  font-size: 17px;
+  line-height: 1.72;
+  opacity: 0.96;
+}
+
+/* Space rhythm */
+main {
+  padding-top: 72px;
+}
+
+main img {
+  margin-top: 52px;
+  opacity: 0.96;
+}
