@@ -190,3 +190,10 @@ main {
 .layout {
   grid-template-columns: 160px 1fr !important;
 }
+
+body{
+  background-image: url("background.png");
+  background-size: 850px;         /* 如果想更空气 → 改成 1100px */
+  background-repeat: repeat;
+  opacity: 0.96;                   /* 保持白底呼吸感，不透明 */
+}
