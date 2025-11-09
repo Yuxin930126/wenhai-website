@@ -39,7 +39,12 @@ a:hover{ text-decoration:underline; }
 .sidebar nav a:hover{ background:var(--bg-alt); }
 .sidebar nav a.active{ background:var(--ink); color:#fff; }
 
-main{ padding:64px 28px 80px; }
+main{
+  padding:64px 28px 80px;
+  max-width: 780px;     /* 控制行宽，使论文式阅读更舒适 */
+  margin: 0 auto;       /* 居中 */
+}
+
 h1{ font-size:var(--fz-xxl); margin:0 0 0.6em; letter-spacing:-0.5px; line-height:1.15; }
 h2{ font-size:var(--fz-xl); margin:48px 0 16px; font-weight:600; }
 p{ margin-bottom:18px; font-size:var(--fz-md); }
@@ -206,5 +211,10 @@ main::before {
   opacity: 0.045;            /* 透明度控制 —— 最关键 */
   z-index: -1;
   pointer-events: none;
+}
+
+h1{
+  letter-spacing: -0.6px;     /* 紧字距 → 更凝练、更科研 */
+  line-height: 1.18;          /* 减少空白 → 信息密度感提升 */
 }
 
