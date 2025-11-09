@@ -67,3 +67,28 @@ li:last-child{ border-bottom:none; }
   main{ padding:32px 20px; }
   h1{ font-size:32px; }
 }
+/* Homepage center layout */
+main {
+  max-width: 720px;   /* 限制正文宽度，避免横向发散 */
+  margin: 0 auto;     /* 让正文居中 */
+  text-align: center; /* 中心对齐正文 */
+}
+
+main p {
+  text-align: left;   /* 但正文段落仍然保持阅读友好的左对齐 */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 620px;   /* 控制段落宽度，保证阅读节奏 */
+}
+
+main .muted {
+  text-align: center;   /* 定位句居中 */
+  color: var(--muted);
+  font-size: var(--fz-md);
+  margin-bottom: 12px;
+}
+
+main h1 {
+  text-align: center;
+  margin-bottom: 32px;  /* 下方留呼吸感 */
+}
