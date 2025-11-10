@@ -32,62 +32,66 @@ a:hover{ text-decoration:underline; }
 
 /* 整体布局 */
 .layout{ display:grid; grid-template-columns: 240px 1fr; min-height:100vh; }
-.sidebar{ border-right:1px solid var(--line); padding:32px 22px; position:sticky; top:0; height:100vh; }
-.sidebar .name{ font-weight:700; font-size:20px; margin-bottom:30px; }
-.sidebar nav a{ display:block; padding:8px 4px; font-size:var(--fz-md); color:var(--ink); border-radius:6px; }
-.sidebar nav a:hover{ background:var(--bg-alt); }
-.sidebar nav a.active{ background:var(--ink); color:#fff; }
+.sidebar{ 
+  background-color: var(--bg-alt);
+  padding: 40px 30px; 
+  position:sticky; 
+  top:0; 
+  height:100vh;
+  border-right:1px solid var(--line);
+}
+.sidebar .name {
+  font-size: 1.4rem;
+  margin-bottom: 1.8em;
+  letter-spacing: -0.3px;
+  font-weight:700;
+}
+.sidebar nav a{ 
+  display:block; 
+  padding:8px 4px; 
+  font-size:var(--fz-md); 
+  color:var(--ink); 
+  border-radius:6px; 
+}
+.sidebar nav a:hover{ 
+  background:var(--bg); /* 悬停时背景变白，与侧边栏底色形成对比 */
+  text-decoration: none;
+}
+.sidebar nav a.active{ 
+  background:var(--ink); 
+  color:#fff; 
+}
 
-main{
-  padding: 36px 28px 20px;       /* 再轻微收紧上下留白 */
-  max-width: 760px;
+main {
+  max-width: 800px;
+  padding: 60px 40px 80px;
   margin: 0 auto;
-  min-height: calc(100vh - 36px); /* 使内容刚好落入屏幕 */
 }
 
-h1{ font-size:var(--fz-xxl); margin:0 0 0.6em; letter-spacing:-0.5px; line-height:1.15; }
-h2{ font-size:var(--fz-xl); margin:48px 0 16px; font-weight:600; }
-p{ margin-bottom:18px; font-size:var(--fz-md); }
-
-/* 列表样式 */
-ul,ol{ padding-left:0; list-style:none; }
-li{ padding:14px 0; border-bottom:1px solid var(--line); }
-li:last-child{ border-bottom:none; }
-
-/* Publications 自动编号 */
-/* === Publications — robust numbering layout === */
-#pub-list{
-  counter-reset: pub;
-  list-style:none; padding:0; margin:0;
-}
-#pub-list li{
-  counter-increment: pub;
-  display:grid;
-  grid-template-columns: 34px 1fr;   /* 左 34px 放序号，右侧正文 */
-  column-gap: 10px;
-  align-items: start;
-  padding: 14px 0;
-  border-bottom:1px solid var(--line);
-}
-#pub-list li:last-child{ border-bottom:none; }
-
-/* 左列序号样式 */
-#pub-list li::before{
-  content: counter(pub) ".";
-  font-weight:800;
-  color:var(--brand);
-  line-height:1.2;
-  margin-top:2px;                    /* 轻微下移更贴正文基线 */
-}
-/* 正文段落不用再做额外内边距 */
-
-/* 窄屏兼容 */
+/* 响应式优化 */
 @media(max-width:960px){
-  .layout{ grid-template-columns:1fr; }
-  .sidebar{ position:relative; height:auto; border-right:none; border-bottom:1px solid var(--line); }
-  main{ padding:32px 20px; }
+  .layout { grid-template-columns:1fr; }
+  .sidebar {
+    padding: 25px 20px;
+    height: auto;
+    border-right: none;
+    border-bottom:1px solid var(--line);
+  }
+  .sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .sidebar nav a {
+    padding: 6px 12px;
+    margin-bottom: 5px;
+  }
+  main {
+    padding: 32px 20px;
+  }
   h1{ font-size:32px; }
 }
+
 /* Homepage center layout */
 main {
   max-width: 720px;   /* 限制正文宽度，避免横向发散 */
