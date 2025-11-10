@@ -8,13 +8,12 @@ Minimalist Academic Theme — "A"
   --font: "Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
   --mono: "JetBrains Mono", Consolas, monospace;
 
-  --ink: #111;            /* 主文字：深墨黑 */
-  --muted: #6b7280;       /* 次级文字 */
-  --line: #e5e5e5;        /* 边界线 */
-  --brand: #003b70;       /* 冷静学术蓝（降低存在感） */
-
+  --ink: #2d3748;            /* 稍浅的黑色，减少压迫感 */
+  --muted: #718096;          /* 更柔和的次级文字 */
+  --line: #e2e8f0;           /* 更浅的分隔线 */
+  --brand: #2b6cb0;          /* 更沉稳的蓝色 */
   --bg: #ffffff;
-  --bg-alt: #f7f8fa;
+  --bg-alt: #f7fafc;         /* 更清爽的背景色 */
 
   --fz-sm: 14px;
   --fz-md: 16px;
@@ -219,3 +218,32 @@ h1{
   line-height: 1.18;          /* 减少空白 → 信息密度感提升 */
 }
 
+/* 链接悬停效果 */
+a:hover {
+  text-decoration: none;
+  color: var(--brand);
+  border-bottom: 1px solid var(--brand);
+}
+
+/* 图片容器样式 */
+main img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin: 2.5em auto;
+  transition: transform 0.3s ease;
+}
+
+main img:hover {
+  transform: translateY(-3px);
+}
+
+/* 出版物高亮作者样式强化 */
+#pub-list strong {
+  color: var(--brand);
+}
+
+/* 为区块添加微妙间隔 */
+section {
+  margin-bottom: 3em;
+  padding: 0 10px;
+}
