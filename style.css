@@ -309,3 +309,13 @@ main.left h1,
 main.left h2, 
 main.left p { text-align:left; margin-left:0; }
 
+.pub-list {
+  margin-left: 20px;
+  line-height: 1.6;
+  font-size: 15px;
+  max-width: 800px;
+}
+
+.pub-list li {
+  margin-bottom: 18px;
+}
