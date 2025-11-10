@@ -378,3 +378,43 @@ main.left p { text-align:left; margin-left:0; }
 .sidebar nav {
   line-height: 1.6;
 }
+
+/* ======== Navigation Sidebar Refinement (2025/11/10) ======== */
+
+/* 左侧栏整体稍宽，给排版空间 */
+.sidebar {
+  width: 200px;
+  padding-left: 24px;  /* 左边留白更柔和 */
+}
+
+/* 顶部名字样式增强 */
+.sidebar .name {
+  font-size: 22px;
+  font-weight: 600;
+  color: #6a5acd;     /* 蓝紫色 */
+  margin-top: 32px;   /* 名字整体往下 */
+  margin-bottom: 40px; /* 与导航列表拉开距离 */
+  letter-spacing: 0.5px;
+}
+
+/* 导航文字右缩进、增大行距、字体更清晰 */
+.sidebar nav a {
+  display: block;
+  padding: 8px 0 8px 6px;  /* 向右缩进 */
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Hover 效果更干净 */
+.sidebar nav a:hover {
+  background: #e9e9e9;
+  border-radius: 4px;
+}
+
+/* 当前页面高亮效果更明显 */
+.sidebar nav a.active {
+  background: #d9d9d9;
+  border-radius: 4px;
+  font-weight: 600;
+}
