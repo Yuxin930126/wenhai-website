@@ -418,3 +418,34 @@ main.left p { text-align:left; margin-left:0; }
   border-radius: 4px;
   font-weight: 600;
 }
+
+/* 确保所有菜单 item 未激活状态一致 */
+.sidebar nav a {
+  display: block;
+  padding: 10px 16px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  background: none;/* ← 去掉 Projects 的默认灰底 */
+}
+
+/* 激活态 */
+.sidebar nav a.active {
+  background: #e6e6e6;
+  font-weight: 600;
+}
+
+/* 内容区的段落分组间距统一 */
+main p,
+main h2,
+main h3,
+main .section-block {
+  margin-bottom: 1.0em;
+}
+
+/* Research / Projects / CV 内容分块加更清晰间距 */
+.section-block {
+  margin-top: 2.0em;   /* 每一块之间推开 */
+  line-height: 1.6;
+}
