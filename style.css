@@ -55,15 +55,31 @@ li{ padding:14px 0; border-bottom:1px solid var(--line); }
 li:last-child{ border-bottom:none; }
 
 /* Publications 自动编号 */
-#pub-list{ counter-reset: num; }
-#pub-list li{ position:relative; padding-left:42px; }
-#pub-list li::before{
-  counter-increment:num;
-  content: counter(num) ".";
-  position:absolute; left:0; top:0;
-  color:var(--brand);
-  font-weight:700;
+/* === Publications — robust numbering layout === */
+#pub-list{
+  counter-reset: pub;
+  list-style:none; padding:0; margin:0;
 }
+#pub-list li{
+  counter-increment: pub;
+  display:grid;
+  grid-template-columns: 34px 1fr;   /* 左 34px 放序号，右侧正文 */
+  column-gap: 10px;
+  align-items: start;
+  padding: 14px 0;
+  border-bottom:1px solid var(--line);
+}
+#pub-list li:last-child{ border-bottom:none; }
+
+/* 左列序号样式 */
+#pub-list li::before{
+  content: counter(pub) ".";
+  font-weight:800;
+  color:var(--brand);
+  line-height:1.2;
+  margin-top:2px;                    /* 轻微下移更贴正文基线 */
+}
+/* 正文段落不用再做额外内边距 */
 
 /* 窄屏兼容 */
 @media(max-width:960px){
@@ -247,3 +263,49 @@ section {
   margin-bottom: 3em;
   padding: 0 10px;
 }
+
+/* === Sidebar sizing & typography === */
+.layout{
+  display:grid;
+  grid-template-columns: 280px 1fr;   /* 240 -> 280，更宽 */
+  min-height:100vh;
+}
+
+/* 左侧栏整体 padding 微调 */
+.sidebar{
+  border-right:1px solid var(--line);
+  padding:34px 22px;
+  position:sticky; top:0; height:100vh;
+}
+
+/* 顶部姓名更显眼 */
+.sidebar .name{
+  font-weight:800;
+  font-size:22px;                    /* 20 -> 22 */
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+/* 导航链接更大、更松 */
+.sidebar nav a{
+  display:block;
+  padding:10px 10px;                 /* 增加上下内边距 */
+  margin-bottom:6px;                 /* 行距 */
+  font-size:16px;                    /* 16，比之前更易读 */
+  line-height:1.35;
+  color:var(--ink);
+  border-radius:8px;
+}
+.sidebar nav a:hover{ background:var(--bg-alt); }
+.sidebar nav a.active{ background:var(--ink); color:#fff; }
+
+/* 让内容整体左对齐（只对标了 class="left" 的页面生效） */
+main.left{
+  text-align:left;
+  max-width: 880px;   /* 视觉宽度控制，避免太松散 */
+}
+main.left h1, 
+main.left h2, 
+main.left p { text-align:left; margin-left:0; }
+
